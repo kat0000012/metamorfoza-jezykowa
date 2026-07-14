@@ -266,7 +266,12 @@
     .cta-section h2 { font-size: 26px !important; }
     .cta-section h2 span { font-size: 32px !important; }
 
-    .footer { padding: 28px 18px !important; }
+    .footer { padding: 36px 18px 28px !important; }
+    .footer-top { flex-direction: column !important; align-items: center !important; text-align: center !important; gap: 28px !important; }
+    .footer-top > div:first-child { align-items: center; display: flex; flex-direction: column; }
+    .footer-top > div:first-child p { text-align: center; }
+    .footer-links { flex-direction: column !important; align-items: center !important; gap: 28px !important; text-align: center !important; }
+    .footer-links > div { align-items: center; display: flex; flex-direction: column; }
     .section-title { font-size: 26px !important; }
   }
 </style>
@@ -699,12 +704,52 @@
   </section>
 
   <!-- FOOTER -->
-  <footer class="footer" style="background:#1e1a18; color:#8a8279; padding:40px; text-align:center;">
-    <div style="display:flex; align-items:baseline; gap:8px; justify-content:center; margin-bottom:12px;">
-      <span style="font-family:'Pinyon Script',cursive; font-size:24px; color:#ffffff;">Metamorfoza</span>
-      <span style="font-size:11px; font-weight:700; letter-spacing:3px; color:#ffffff;">JĘZYKOWA</span>
+  <footer class="footer" style="background:#1e1a18; color:#a49c93; padding:52px 40px 36px;">
+    <div style="max-width:1000px; margin:0 auto;">
+      <div class="footer-top" style="display:flex; align-items:flex-start; justify-content:space-between; gap:40px; flex-wrap:wrap; margin-bottom:36px;">
+        <div>
+          <div style="display:flex; align-items:baseline; gap:8px; margin-bottom:10px;">
+            <span style="font-family:'Pinyon Script',cursive; font-size:26px; color:#ffffff;">Metamorfoza</span>
+            <span style="font-size:11px; font-weight:700; letter-spacing:3px; color:#ffffff;">JĘZYKOWA</span>
+          </div>
+          <p style="font-size:13px; line-height:1.5; margin:0; max-width:280px;">Kurs angielskiego online dla kobiet 30+. Lekcje 1:1 z lektorką, w Twoim tempie.</p>
+        </div>
+        <div class="footer-links" style="display:flex; gap:48px; flex-wrap:wrap;">
+          <div>
+            <div style="font-size:12px; font-weight:700; letter-spacing:1.5px; color:#ffffff; margin-bottom:12px;">NAWIGACJA</div>
+            <div style="display:flex; flex-direction:column; gap:8px;">
+              <a href="#jak" style="color:#a49c93; font-size:13px; text-decoration:none;" style-hover="color:#ffffff;">Jak to działa</a>
+              <a href="#program" style="color:#a49c93; font-size:13px; text-decoration:none;" style-hover="color:#ffffff;">Program kursu</a>
+              <a href="#club" style="color:#a49c93; font-size:13px; text-decoration:none;" style-hover="color:#ffffff;">Women's Club</a>
+              <a href="#cennik" style="color:#a49c93; font-size:13px; text-decoration:none;" style-hover="color:#ffffff;">Cennik</a>
+              <a href="#kontakt" style="color:#a49c93; font-size:13px; text-decoration:none;" style-hover="color:#ffffff;">Kontakt</a>
+            </div>
+          </div>
+          <div>
+            <div style="font-size:12px; font-weight:700; letter-spacing:1.5px; color:#ffffff; margin-bottom:12px;">INFORMACJE</div>
+            <div style="display:flex; flex-direction:column; gap:8px;">
+              <a href="#" style="color:#a49c93; font-size:13px; text-decoration:none;" style-hover="color:#ffffff;">Regulamin</a>
+              <a href="#" style="color:#a49c93; font-size:13px; text-decoration:none;" style-hover="color:#ffffff;">Polityka prywatności</a>
+              <a href="#" style="color:#a49c93; font-size:13px; text-decoration:none;" style-hover="color:#ffffff;">Reklamacje i zwroty</a>
+            </div>
+          </div>
+          <div>
+            <div style="font-size:12px; font-weight:700; letter-spacing:1.5px; color:#ffffff; margin-bottom:12px;">KONTAKT</div>
+            <div style="display:flex; flex-direction:column; gap:8px;">
+              <span style="font-size:13px;">kontakt@metamorfoza.pl</span>
+              <span style="font-size:13px;">+48 000 000 000</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="border-top:1px solid rgba(255,255,255,.1); padding-top:20px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px;">
+        <p style="font-size:12px; margin:0;">© 2026 Metamorfoza Językowa. Wszelkie prawa zastrzeżone.</p>
+        <div style="display:flex; gap:16px;">
+          <a href="#" style="color:#a49c93; font-size:12px; text-decoration:none;" style-hover="color:#ffffff;">Regulamin</a>
+          <a href="#" style="color:#a49c93; font-size:12px; text-decoration:none;" style-hover="color:#ffffff;">Polityka prywatności</a>
+        </div>
+      </div>
     </div>
-    <p style="font-size:13px; margin:0;">Kurs angielskiego online dla kobiet 30+ · © 2026 Metamorfoza Językowa</p>
   </footer>
 
 </div>
