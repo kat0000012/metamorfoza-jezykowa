@@ -52,39 +52,99 @@
     .section-title { font-size: 32px !important; }
   }
 
+  /* ===== STATS MARQUEE KEYFRAMES ===== */
+  @keyframes stats-scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
   /* ===== MOBILE ≤640px ===== */
   @media (max-width: 640px) {
+    /* 1. Global text centering on mobile */
+    .hero-grid > div,
+    .pain-grid > div,
+    .steps-grid > div,
+    .reviews-grid > div,
+    .perks-grid > div,
+    .materials-header,
+    .pricing-features { text-align: center !important; }
+
     .menu-toggle { display: block; }
     .nav-links { display: none !important; }
     .nav-cta { display: none !important; }
     .nav-bar { padding: 16px 18px !important; }
 
+    /* 2. Hero h1 — bigger on mobile */
     .hero-grid { padding: 20px 18px 36px !important; gap: 24px !important; }
-    .hero-grid h1 { font-size: 32px !important; letter-spacing: -0.5px !important; }
-    .hero-grid h1 .pinyon-accent { font-size: 34px !important; }
-    .hero-grid p { font-size: 15px !important; }
-    .hero-btns { flex-direction: column !important; }
+    .hero-grid h1 { font-size: 42px !important; letter-spacing: -0.5px !important; }
+    .hero-grid h1 .pinyon-accent { font-size: 44px !important; }
+    .hero-grid p { font-size: 15px !important; max-width: 100% !important; }
+    .hero-btns { flex-direction: column !important; align-items: center !important; }
     .hero-btns a { text-align: center; }
+    .hero-grid .hero-subtitle { justify-content: center !important; }
 
-    .stats-grid { grid-template-columns: repeat(2, 1fr) !important; }
-    .stats-grid > div { padding: 28px 14px !important; }
+    /* 3. Stats bar → animated marquee */
+    .stats-section { overflow: hidden !important; }
+    .stats-grid {
+      display: flex !important;
+      width: max-content !important;
+      animation: stats-scroll 12s linear infinite !important;
+      max-width: none !important;
+    }
+    .stats-grid > div {
+      padding: 22px 28px !important;
+      border-right: 1px solid rgba(255,255,255,.12) !important;
+      white-space: nowrap !important;
+      min-width: 180px !important;
+    }
     .stats-grid .stat-main { font-size: 24px !important; }
 
+    /* 4. Pain cards — centered emoji + text, bigger emoji */
     .pain-section { padding: 48px 18px !important; }
     .pain-section h2 { font-size: 28px !important; }
-    .pain-grid { grid-template-columns: 1fr !important; gap: 16px !important; }
+    .pain-grid { grid-template-columns: 1fr !important; gap: 16px !important; text-align: center !important; }
+    .pain-emoji { font-size: 34px !important; text-align: center !important; }
 
+    /* 5. Steps cards — centered emoji + text, bigger emoji */
     .steps-section { padding: 48px 18px !important; }
     .steps-section h2 { font-size: 28px !important; }
     .steps-grid { grid-template-columns: 1fr !important; gap: 16px !important; }
+    .step-icon {
+      margin: 0 auto 22px !important;
+      width: 54px !important;
+      height: 54px !important;
+      font-size: 24px !important;
+    }
 
+    /* 6. Level circles — bigger so text fits */
     .program-section { padding: 48px 18px !important; }
     .program-section h2 { font-size: 28px !important; }
-    .levels-row { gap: 4px !important; }
-    .levels-row span:first-child { width: 34px !important; height: 34px !important; font-size: 10px !important; }
-    .accordion-header { padding: 16px 14px !important; gap: 12px !important; flex-wrap: wrap; }
+    .levels-row { gap: 6px !important; }
+    .level-circle { width: 50px !important; height: 50px !important; font-size: 12px !important; }
+
+    /* 7. Accordion cards — 3-column: num | title+desc | count badge */
+    .accordion-header {
+      display: grid !important;
+      grid-template-columns: auto 1fr auto !important;
+      gap: 10px !important;
+      padding: 16px 14px !important;
+      align-items: center !important;
+    }
     .accordion-num { font-size: 20px !important; min-width: 28px !important; }
     .accordion-title { font-size: 15px !important; }
+    .accordion-level-badge { display: none !important; }
+    .accordion-count {
+      background: #fbe0e9 !important;
+      color: #e2749d !important;
+      padding: 5px 12px !important;
+      border-radius: 999px !important;
+      font-weight: 700 !important;
+      font-size: 11px !important;
+      white-space: nowrap !important;
+      text-align: center !important;
+      min-width: auto !important;
+    }
+    .accordion-chevron { display: none !important; }
     .lessons-inner { grid-template-columns: 1fr !important; padding: 4px 14px 14px !important; }
 
     .reviews-section { padding: 48px 18px !important; }
@@ -97,7 +157,9 @@
     .club-section { padding: 48px 18px !important; }
     .club-section h2 { font-size: 28px !important; }
     .club-grid { grid-template-columns: 1fr !important; max-width: 100% !important; gap: 20px !important; }
-    .perks-grid { grid-template-columns: 1fr !important; max-width: 100% !important; }
+    .perks-grid { grid-template-columns: 1fr !important; max-width: 100% !important; text-align: center !important; }
+    .perks-grid > div { flex-direction: column !important; align-items: center !important; }
+    .perk-emoji { font-size: 28px !important; }
 
     .materials-section { padding: 48px 18px !important; }
     .materials-header { padding: 24px 20px !important; }
@@ -149,7 +211,7 @@
   <!-- HERO -->
   <section id="dlakogo" class="hero-grid" style="max-width:1200px; margin:0 auto; padding:36px 40px 60px; display:grid; grid-template-columns:1.05fr 0.95fr; gap:56px; align-items:center;">
     <div>
-      <div style="display:flex; align-items:center; gap:10px; margin-bottom:22px;">
+      <div class="hero-subtitle" style="display:flex; align-items:center; gap:10px; margin-bottom:22px;">
         <span style="width:26px; height:1.5px; background:#e2749d; display:inline-block;"></span>
         <span style="font-size:11px; font-weight:700; letter-spacing:2px; color:#e2749d;">KURS ANGIELSKIEGO ONLINE&nbsp;</span>
       </div>
@@ -172,7 +234,7 @@
   </section>
 
   <!-- STATS BAR -->
-  <section style="background:#262220;">
+  <section class="stats-section" style="background:#262220;">
     <div class="stats-grid" style="max-width:1200px; margin:0 auto; display:grid; grid-template-columns:repeat(4,1fr);">
       <sc-for list="{{ stats }}" as="s" hint-placeholder-count="4">
         <div style="padding:44px 20px; text-align:center; border-right:1px solid rgba(255,255,255,.09);">
@@ -193,7 +255,7 @@
       <div class="pain-grid" style="display:grid; grid-template-columns:repeat(3,1fr); gap:22px; text-align:left;">
         <sc-for list="{{ pains }}" as="p" hint-placeholder-count="3">
           <div style="background:#ffffff; border-radius:16px; padding:28px 26px; box-shadow:0 6px 22px rgba(40,30,30,.05);">
-            <div style="font-size:26px; margin-bottom:16px;">{{ p.emoji }}</div>
+            <div class="pain-emoji" style="font-size:26px; margin-bottom:16px;">{{ p.emoji }}</div>
             <div style="font-size:17px; font-weight:700; margin-bottom:10px; line-height:1.3;">{{ p.title }}</div>
             <p style="font-size:14px; color:#8a8279; line-height:1.6; margin:0;">{{ p.text }}</p>
           </div>
@@ -213,7 +275,7 @@
       <div class="steps-grid" style="display:grid; grid-template-columns:repeat(3,1fr); gap:22px; text-align:left;">
         <sc-for list="{{ steps }}" as="st" hint-placeholder-count="3">
           <div style="background:#fce3ec; border-radius:18px; padding:30px 28px;">
-            <div style="width:46px; height:46px; border-radius:12px; background:#ffffff; display:flex; align-items:center; justify-content:center; font-size:20px; margin-bottom:22px;">{{ st.emoji }}</div>
+            <div class="step-icon" style="width:46px; height:46px; border-radius:12px; background:#ffffff; display:flex; align-items:center; justify-content:center; font-size:20px; margin-bottom:22px;">{{ st.emoji }}</div>
             <div style="font-size:11px; font-weight:700; letter-spacing:2px; color:#e2749d; margin-bottom:10px;">{{ st.krok }}</div>
             <div style="font-size:19px; font-weight:700; margin-bottom:12px; line-height:1.25;">{{ st.title }}</div><p style="font-size:14px; color:#7d756c; line-height:1.6; margin:0;">{{ st.text }}</p>
             
@@ -236,7 +298,7 @@
         <div class="levels-row" style="display:flex; align-items:center; justify-content:center; gap:6px; flex-wrap:wrap; margin-bottom:38px;">
           <sc-for list="{{ levels }}" as="lv" hint-placeholder-count="6">
             <div style="display:flex; align-items:center; gap:6px;">
-              <span style="width:40px; height:40px; border-radius:999px; display:flex; align-items:center; justify-content:center; font-size:{{ lv.fs }}; line-height:1; text-align:center; font-weight:700; background:{{ lv.bg }}; color:{{ lv.color }};">{{ lv.code }}</span>
+              <span class="level-circle" style="width:40px; height:40px; border-radius:999px; display:flex; align-items:center; justify-content:center; font-size:{{ lv.fs }}; line-height:1; text-align:center; font-weight:700; background:{{ lv.bg }}; color:{{ lv.color }};">{{ lv.code }}</span>
               <span style="font-size:12px; color:#8a8279;">{{ lv.label }}</span>
               <span style="width:22px; height:1px; background:#d9d0c6; display:{{ lv.sep }};"></span>
             </div>
@@ -254,9 +316,9 @@
                 <div class="accordion-title" style="font-size: 18px; font-weight: 700; line-height: 1.25; color: #F2A6C4">{{ d.title }}</div>
                 <div style="font-size:13px; color:#8a8279; margin-top:3px;">{{ d.desc }}</div>
               </div>
-              <span style="padding:5px 10px; border-radius:6px; background:#fbe0e9; color:#e2749d; font-size:12px; font-weight:700; white-space:nowrap;">{{ d.level }}</span>
-              <span style="font-size:12px; color:#8a8279; min-width:64px; text-align:right;">{{ d.count }}</span>
-              <span style="{{ d.chevronStyle }}">⌄</span>
+              <span class="accordion-level-badge" style="padding:5px 10px; border-radius:6px; background:#fbe0e9; color:#e2749d; font-size:12px; font-weight:700; white-space:nowrap;">{{ d.level }}</span>
+              <span class="accordion-count" style="font-size:12px; color:#8a8279; min-width:64px; text-align:right;">{{ d.count }}</span>
+              <span class="accordion-chevron" style="{{ d.chevronStyle }}">⌄</span>
             </div>
             <sc-if value="{{ d.isOpen }}" hint-placeholder-val="{{ false }}">
               <div class="lessons-inner" style="padding:4px 26px 26px; display:grid; grid-template-columns:1fr 1fr; gap:2px 32px;">
@@ -341,7 +403,7 @@
       <div class="perks-grid" style="display:grid; grid-template-columns:repeat(3,1fr); gap:22px; text-align:left; max-width:920px; margin:0 auto 44px;">
         <sc-for list="{{ perks }}" as="pk" hint-placeholder-count="3">
           <div style="display:flex; gap:14px; align-items:flex-start;">
-            <span style="font-size:22px;">{{ pk.emoji }}</span>
+            <span class="perk-emoji" style="font-size:22px;">{{ pk.emoji }}</span>
             <div>
               <div style="font-size:15px; font-weight:700; margin-bottom:5px;">{{ pk.title }}</div>
               <p style="font-size:13px; color:#8a8279; line-height:1.55; margin:0;">{{ pk.text }}</p>
@@ -588,12 +650,15 @@ class Component extends DCLogic {
 
     return {
       showBadges: this.props.showFloatingBadges ?? true,
-      stats: [
-        { top: '', pre: '', main: '6', accent: '', label: 'poziomów' },
-        { top: 'ponad', pre: '', main: '700', accent: '', label: 'lekcji 1:1 z lektorką' },
-        { top: '', pre: 'Pre ', main: 'A1', accent: '–C2', label: 'od podstaw do swobody w mówieniu' },
-        { top: '', pre: '', main: '20 ', accent: 'min', label: 'tyle trwa jedna lekcja' }
-      ],
+      stats: (() => {
+        const base = [
+          { top: '', pre: '', main: '6', accent: '', label: 'poziomów' },
+          { top: 'ponad', pre: '', main: '700', accent: '', label: 'lekcji 1:1 z lektorką' },
+          { top: '', pre: 'Pre ', main: 'A1', accent: '–C2', label: 'od podstaw do swobody w mówieniu' },
+          { top: '', pre: '', main: '20 ', accent: 'min', label: 'tyle trwa jedna lekcja' }
+        ];
+        return window.innerWidth <= 640 ? [...base, ...base] : base;
+      })(),
       pains: [
         { emoji: '😳', title: '„Rozumiem, ale nie potrafię się odezwać"', text: 'W głowie masz całe zdania. Gdy trzeba je powiedzieć na głos, gardło się ściska, a słowa znikają.' },
         { emoji: '⏰', title: '„Nie mam czasu na kolejny kurs"', text: 'Praca, dom, dzieci. Sztywne grafiki szkół językowych nie pasują do Twojego życia, więc odkładasz to na później.' },
