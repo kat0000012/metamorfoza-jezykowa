@@ -130,7 +130,7 @@
     .reviews-section { padding: 60px 24px !important; }
     .reviews-grid { grid-template-columns: repeat(2, 1fr) !important; }
     .club-section { padding: 60px 24px !important; }
-    .perks-grid { grid-template-columns: repeat(2, 1fr) !important; }
+    .club-columns { grid-template-columns: 1fr !important; gap: 36px !important; text-align: center !important; }
     .materials-section { padding: 60px 24px !important; }
     .materials-grid { grid-template-columns: 1fr 1fr !important; }
     .pricing-section { padding: 60px 24px !important; }
@@ -157,7 +157,6 @@
     .pain-grid > div,
     .steps-grid > div,
     .reviews-grid > div,
-    .perks-grid > div,
     .materials-header,
     .pricing-features { text-align: center !important; }
 
@@ -237,8 +236,8 @@
 
     .club-section { padding: 48px 18px !important; }
     .club-section h2 { font-size: 28px !important; }
-    .perks-grid { grid-template-columns: 1fr !important; max-width: 100% !important; text-align: center !important; }
-    .perks-grid > div { flex-direction: column !important; align-items: center !important; }
+    .club-columns { grid-template-columns: 1fr !important; gap: 32px !important; text-align: center !important; }
+    .club-perks > div { flex-direction: column !important; align-items: center !important; }
     .perk-emoji { font-size: 28px !important; }
 
     .materials-section { padding: 48px 18px !important; }
@@ -291,7 +290,7 @@
     // Grids that stagger their children
     var gridClasses = [
       '.pain-grid', '.steps-grid', '.reviews-grid',
-      '.perks-grid', '.materials-grid'
+      '.materials-grid'
     ];
     gridClasses.forEach(function(sel) {
       var el = root.querySelector(sel);
@@ -536,23 +535,28 @@
     <div style="max-width:1080px; margin:0 auto; text-align:center;">
       <span style="font-size:11px; font-weight:700; letter-spacing:2px; color:#e2749d;">WOMEN'S CLUB</span>
       <h2 class="section-title" style="font-size:40px; font-weight:800; letter-spacing:-1px; line-height:1.12; margin:16px 0 18px;">Women's Club — przestrzeń tylko dla kobiet</h2>
-      <p style="font-size:16px; color:#6f6862; max-width:640px; margin:0 auto 28px; line-height:1.6;">Do kursu Metamorfoza dołączamy możliwość udziału w cotygodniowych spotkaniach Women's Club.</p>
-      <div style="max-width:720px; margin:0 auto 32px; text-align:center;">
-        <p style="font-size:18px; color:#4a443f; line-height:1.7; margin:0;">Women's Club to wydarzenie dla kobiet i stworzone z myślą o kobietach, które chcą rozwijać swój angielski w swobodnej i wspierającej atmosferze. Poruszamy ciekawe tematy związane z codziennością, rozwojem, relacjami i kobiecymi doświadczeniami, tworząc przestrzeń do wymiany opinii i nowych inspiracji. Dołącz i poczuj się swobodnie, dzieląc się swoimi przemyśleniami w języku angielskim. 🤝🌷</p>
-      </div>
-      <div style="margin:0 auto 44px;">
-        <span style="display:inline-block; background:#FCE7EF; color:#c65f88; font-size:14px; font-weight:600; padding:10px 22px; border-radius:999px; line-height:1.5;">📅 Spotykamy się w każdy czwartek o 19:00 — na platformie</span>
-      </div>
-      <div class="perks-grid" style="display:grid; grid-template-columns:repeat(3,1fr); gap:22px; text-align:left; max-width:920px; margin:0 auto 44px;">
-        <sc-for list="{{ perks }}" as="pk" hint-placeholder-count="3">
-          <div style="display:flex; gap:14px; align-items:flex-start;">
-            <span class="perk-emoji" style="font-size:22px;">{{ pk.emoji }}</span>
-            <div>
-              <div style="font-size:15px; font-weight:700; margin-bottom:5px;">{{ pk.title }}</div>
-              <p style="font-size:13px; color:#8a8279; line-height:1.55; margin:0;">{{ pk.text }}</p>
-            </div>
+      <div class="club-columns" style="display:grid; grid-template-columns:1fr 0.8fr; gap:64px; align-items:center; max-width:1080px; margin:0 auto 44px; text-align:left;">
+        <div>
+          <p style="font-size:16px; color:#6f6862; margin:0 0 24px; line-height:1.6;">Do kursu Metamorfoza dołączamy możliwość udziału w cotygodniowych spotkaniach Women's Club.</p>
+          <p style="font-size:18px; color:#4a443f; line-height:1.7; margin:0 0 28px;">Poruszamy ciekawe tematy związane z codziennością, rozwojem, relacjami i kobiecymi doświadczeniami, tworząc przestrzeń do wymiany opinii i nowych inspiracji. Dołącz i poczuj się swobodnie, dzieląc się swoimi przemyśleniami w języku angielskim. 🤝🌷</p>
+          <div style="margin:0 0 32px;">
+            <span style="display:inline-block; background:#FCE7EF; color:#c65f88; font-size:14px; font-weight:600; padding:10px 22px; border-radius:999px; line-height:1.5;">📅 Spotykamy się w każdy czwartek o 19:00 — na platformie</span>
           </div>
-        </sc-for>
+          <div class="club-perks" style="display:flex; flex-direction:column; gap:20px;">
+            <sc-for list="{{ perks }}" as="pk" hint-placeholder-count="3">
+              <div style="display:flex; gap:14px; align-items:flex-start;">
+                <span class="perk-emoji" style="font-size:22px;">{{ pk.emoji }}</span>
+                <div>
+                  <div style="font-size:15px; font-weight:700; margin-bottom:5px;">{{ pk.title }}</div>
+                  <p style="font-size:13px; color:#8a8279; line-height:1.55; margin:0;">{{ pk.text }}</p>
+                </div>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+        <div>
+          <img src="images/womens-club.webp" alt="Kobieta ucząca się angielskiego online podczas spotkania Women's Club" loading="lazy" style="width:100%; height:auto; object-fit:cover; border-radius:24px; display:block;">
+        </div>
       </div>
       <a href="#kontakt" style="display:inline-block; background:#f2a6c4; color:#262220; font-size:15px; font-weight:600; padding:15px 32px; border-radius:999px;" style-hover="background:#ee97ba;">Zacznij metamorfozę</a>
     </div>
